@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package starknet.v1;
+
+message Event {
+  string json_description = 1;
+}
+
+message Events {
+  repeated Event events = 1;
+}
