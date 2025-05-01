@@ -1,3 +1,62 @@
-type MyEntity @entity {
+type DepositorApproved @entity(immutable: true) {
     id: ID!
+    depositor: Bytes!
+    escrowId: BigInt!
+    timeOfApproval: BigInt!
+    blockNumber: BigInt!
+    blockTimestamp: BigInt!
+    transactionHash: Bytes!
+}
+
+type ArbiterApproved @entity(immutable: true) {
+    id: ID!
+    arbiter: Bytes!
+    escrowId: BigInt!
+    timeOfApproval: BigInt!
+    blockNumber: BigInt!
+    blockTimestamp: BigInt!
+    transactionHash: Bytes!
+}
+
+type EscrowInitialized @entity(immutable: true) {
+    id: ID!
+    escrowId: BigInt!
+    beneficiary: Bytes!
+    provider: Bytes!
+    amount: BigInt!
+    timestamp: BigInt!
+    blockNumber: BigInt!
+    blockTimestamp: BigInt!
+    transactionHash: Bytes!
+}
+
+type EscrowRefunded @entity(immutable: true) {
+    id: ID!
+    escrowId: BigInt!
+    depositor: Bytes!
+    amount: BigInt!
+    timestamp: BigInt!
+    blockNumber: BigInt!
+    blockTimestamp: BigInt!
+    transactionHash: Bytes!
+}
+
+type EscrowFunded @entity(immutable: true) {
+    id: ID!
+    depositor: Bytes!
+    amount: BigInt!
+    escrowAddress: Bytes!
+    blockNumber: BigInt!
+    blockTimestamp: BigInt!
+    transactionHash: Bytes!
+}
+
+type FundsReleased @entity(immutable: true) {
+    id: ID!
+    escrowId: BigInt!
+    beneficiary: Bytes!
+    amount: BigInt!
+    blockNumber: BigInt!
+    blockTimestamp: BigInt!
+    transactionHash: Bytes!
 }
