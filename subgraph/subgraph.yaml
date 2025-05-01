@@ -1,0 +1,19 @@
+specVersion: 1.0.0
+description: escrownet Substreams-powered-Subgraph
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: substreams
+    name: escrownet
+    network: starknet-testnet
+    source:
+      package:
+        moduleName: map_escrow_events
+        file: ../escrownet-v0.1.0.spkg
+    mapping:
+      apiVersion: 0.0.7
+      kind: substreams/graph-entities
+      file: ./src/mappings.ts
+      handler: handleTriggers
